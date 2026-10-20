@@ -105,6 +105,7 @@
 
         outline-title-text: "Outline",
         outline-depth: 1,
+        align-outline: false,
         heading-numbering: none,
 
         fontsize: 24pt,
@@ -240,13 +241,8 @@
                     left-footer
                 })
 
-                slide[
+                let outline-content = [
                     #set text(fill: white)
-
-                    #heading(outlined: false, text(
-                        fill: c.accent.lighten(25%),
-                        [#outline-title-text],
-                    ))
 
                     #show outline.entry: it => link(
                         it.element.location(),
@@ -258,6 +254,24 @@
                         title: none,
                     )
                 ]
+
+                let outline-heading = heading(outlined: false)[
+                    #text(
+                      fill: c.accent.lighten(25%),
+                      [#outline-title-text],
+                    )
+                ]
+
+                if align-outline {
+                    aligned-slide(outline-heading)[
+                        #outline-content
+                    ]
+                } else {
+                    slide[
+                        #outline-heading
+                        #outline-content
+                    ]
+                }
             }
         }
 
