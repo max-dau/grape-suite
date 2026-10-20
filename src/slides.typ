@@ -1,6 +1,7 @@
 #let (
     slides,
     slide,
+    aligned-slide,
     focus-slide,
     uncover,
     only,
@@ -52,6 +53,18 @@
                 #v(-0.75em)
                 #body
             ]
+        ]
+    }
+
+    let aligned-slide(title, body, ..args) = context {
+        state("grape-suite-slides", ()).update(k => {
+            k.push("normal")
+            k
+        })
+
+        polylux.slide(..args)[
+            #title
+            #align(horizon)[#body]
         ]
     }
 
@@ -288,6 +301,7 @@
     (
         slides,
         slide,
+        aligned-slide,
         focus-slide,
         uncover,
         only,

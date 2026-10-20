@@ -418,6 +418,11 @@ _Note:_ The template generates a German statement of authorship as the last page
 | :------------ | :------------------------ |
 | `body`        | content, document content |
 
+| `aligned-slide` |                           |
+| :-------------- | :------------------------ |
+| `title`         | content, title content    |
+| `body`          | content, document content |
+
 - `slide`, `later`, `only`, `uncover`: imported from polylux
 
 ## Subtypes
